@@ -24,4 +24,4 @@
 # components.
 
 add_lunch_combo twrp_X505X-eng
-#add_lunch_combo omni_X505X-userdebug
+#add_lunch_combo twrp_X505X-userdebug
