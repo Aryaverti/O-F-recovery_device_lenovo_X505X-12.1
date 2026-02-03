@@ -23,7 +23,7 @@ $(call inherit-product, build/target/product/embedded.mk)
 $(call inherit-product, vendor/omni/config/common_tablet.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_NAME := omni_X505X
+PRODUCT_NAME := twrp_X505X
 PRODUCT_DEVICE := X505X
 PRODUCT_BRAND := Lenovo
 PRODUCT_MODEL := Lenovo TB-X505X
