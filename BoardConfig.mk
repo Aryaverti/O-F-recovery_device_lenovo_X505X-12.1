@@ -129,4 +129,5 @@ TW_THEME := portrait_hdpi
 #LUN file - error on TWRP for Pie
 #TARGET_USE_CUSTOM_LUN_FILE_PATH := "/config/usb_gadget/g1/functions/mass_storage.0/lun.0"
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 200
