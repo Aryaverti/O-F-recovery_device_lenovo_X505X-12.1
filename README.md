@@ -32,7 +32,7 @@ To build:
 
 ```
 . build/envsetup.sh
-lunch omni_X505X-eng
+lunch twrp_X505X-eng
 make clean
 mka recoveryimage
 ```
