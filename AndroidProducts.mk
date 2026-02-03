@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_X505X.mk
+    $(LOCAL_DIR)/twrp_X505X.mk
