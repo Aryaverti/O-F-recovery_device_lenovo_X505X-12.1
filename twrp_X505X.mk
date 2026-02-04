@@ -19,7 +19,7 @@ ALLOW_MISSING_DEPENDENCIES := true
 PRODUCT_RELEASE_NAME := X505X
 
 # inherit the usual stuff...
-$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
 ## Device identifier. This must come after all inclusions
