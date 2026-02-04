@@ -16,3 +16,7 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/twrp_X505X.mk
+
+COMMON_LUNCH_CHOICES := \
+    twrp_X505X-userdebug \
+    twrp_X505X-eng
