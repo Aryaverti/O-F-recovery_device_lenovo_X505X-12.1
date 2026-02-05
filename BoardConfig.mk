@@ -46,14 +46,13 @@ TARGET_NO_BOOTLOADER := true
 TARGET_PREBUILT_KERNEL := device/lenovo/X505X/prebuilt/Image.gz
 TARGET_PREBUILT_DTB := device/lenovo/X505X/prebuilt/dtb.img
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-TARGET_RECOVERY_DEVICE_DIRS := device/lenovo/X505X
-BOARD_PREBUILT_DTBIMAGE := device/lenovo/X505X/prebuilt/dtb.img
-TARGET_PREBUILT_KERNEL := device/lenovo/X505X/prebuilt/Image.gz
-TARGET_PREBUILT_DTB := device/lenovo/X505X/prebuilt/dtb.img
-BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+
+# Crucial Fix: This tells the build system exactly where to find the prebuilt DTB image
 BOARD_PREBUILT_DTBIMAGE := device/lenovo/X505X/prebuilt/dtb.img
 
 TARGET_RECOVERY_DEVICE_DIRS := device/lenovo/X505X
+
+# Kernel Offsets
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_OFFSET := 0x00008000
@@ -61,6 +60,7 @@ BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET := 0x01000000
 BOARD_SECOND_OFFSET := 0x00f00000
 
+# Kernel Header Info
 BOARD_HASH_TYPE := sha1
 BOARD_OS_VERSION := 9.0.0
 BOARD_OS_PATCH_LEVEL := 2020-07
@@ -83,11 +83,9 @@ BOARD_KERNEL_CMDLINE += buildvariant=user
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE += androidboot.goodixtp=gtp
 
-
 # Platform
 TARGET_BOARD_PLATFORM := msm8937
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno504
-TARGET_BOARD_SUFFIX := _64
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -99,55 +97,43 @@ BOARD_CACHEIMAGE_PARTITION_SIZE := 0x10000000
 BOARD_PERSISTIMAGE_PARTITION_SIZE := 0x02000000
 BOARD_OEMIMAGE_PARTITION_SIZE := 0x10000000
 BOARD_SUPPORTS_DYNAMIC_PARTITIONS := true
+
+# Verified Boot (VBMeta) Fix
+TARGET_PREBUILT_VBMETA := device/lenovo/X505X/prebuilt/vbmeta.img
 BOARD_AVB_VBMETA_CUSTOM_IMAGE := device/lenovo/X505X/prebuilt/vbmeta.img
 
+# Treble & File Systems
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
-
-#treble
 TARGET_COPY_OUT_VENDOR := vendor
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext2
 BOARD_VENDORIMAGE_PARTITION_SIZE := 0x60000000
-
-#file system
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_ROOT_EXTRA_SYMLINKS := /vendor/firmware_mnt:/firmware
 
-
-#decryption
+# Decryption
 TARGET_HW_DISK_ENCRYPTION := false
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
 TW_EXCLUDE_LCRYPTFS := true
 PLATFORM_SECURITY_PATCH := 2025-12-31
 
-# TWRP specific build flags
+# TWRP Specific Flags
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
-
 TW_USE_TOOLBOX := true
 TW_EXCLUDE_TWRPAPP := true
 TW_EXCLUDE_SUPERSU := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 TW_HAS_EDL_MODE := true
 TW_INCLUDE_NTFS_3G := true
-
-# disable mouse cursor
 TW_INPUT_BLACKLIST := "hbtp_vm"
-
-# orientation
 TW_THEME := portrait_hdpi
-
-#LUN file - error on TWRP for Pie
-#TARGET_USE_CUSTOM_LUN_FILE_PATH := "/config/usb_gadget/g1/functions/mass_storage.0/lun.0"
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 200
 
 # Device Assert
 TARGET_OTA_ASSERT_DEVICE := X505X,TB-X505X,TB-X505F,TB-X505L
-
-#Verified Boot disabler.img
-TARGET_PREBUILT_VBMETA := device/lenovo/X505X/prebuilt/vbmeta.img
