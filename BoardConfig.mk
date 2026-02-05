@@ -45,7 +45,6 @@ TARGET_NO_BOOTLOADER := true
 # Kernel
 TARGET_PREBUILT_KERNEL := device/lenovo/X505X/prebuilt/Image.gz
 TARGET_PREBUILT_DTB := device/lenovo/X505X/prebuilt/dtb.img
-TARGET_RECOVERY_DEVICE_DIRS := device/lenovo/X505X
 
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -62,7 +61,6 @@ BOARD_HEADER_SIZE := 1648
 
 # kernel - touchscreen for recovery
 BOARD_KERNEL_CMDLINE += androidboot.goodixtp=gtp
-TARGET_PREBUILT_KERNEL := device/lenovo/X505X/prebuilt/Image.gz
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8937
