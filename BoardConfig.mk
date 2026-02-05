@@ -144,3 +144,6 @@ TARGET_OTA_ASSERT_DEVICE := X505X,TB-X505X,TB-X505F,TB-X505L
 
 #SELinux
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+
+#Verified Boot disabler.img
+TARGET_PREBUILT_VBMETA := device/lenovo/X505X/prebuilt/vbmeta.img
