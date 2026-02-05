@@ -47,6 +47,7 @@ TARGET_PREBUILT_KERNEL := device/lenovo/X505X/prebuilt/Image.gz
 TARGET_PREBUILT_DTB := device/lenovo/X505X/prebuilt/dtb.img
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 TARGET_RECOVERY_DEVICE_DIRS := device/lenovo/X505X
+BOARD_PREBUILT_DTBIMAGE := device/lenovo/X505X/prebuilt/dtb.img
 
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
