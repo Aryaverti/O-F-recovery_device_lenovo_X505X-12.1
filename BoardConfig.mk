@@ -45,6 +45,8 @@ TARGET_NO_BOOTLOADER := true
 # Kernel
 TARGET_PREBUILT_KERNEL := device/lenovo/X505X/prebuilt/Image.gz
 TARGET_PREBUILT_DTB := device/lenovo/X505X/prebuilt/dtb.img
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+TARGET_RECOVERY_DEVICE_DIRS := device/lenovo/X505X
 
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -59,8 +61,22 @@ BOARD_OS_PATCH_LEVEL := 2020-07
 BOARD_HEADER_VERSION := 2
 BOARD_HEADER_SIZE := 1648
 
-# kernel - touchscreen for recovery
+# Kernel Command Line
+BOARD_KERNEL_CMDLINE := androidboot.console=ttyMSM0
+BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom
+BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237
+BOARD_KERNEL_CMDLINE += ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1
+BOARD_KERNEL_CMDLINE += androidboot.bootdevice=7824900.sdhci
+BOARD_KERNEL_CMDLINE += earlycon=msm_serial_dm,0x78B0000
+BOARD_KERNEL_CMDLINE += firmware_class.path=/vendor/firmware_mnt/image
+BOARD_KERNEL_CMDLINE += androidboot.usbconfigfs=true
+BOARD_KERNEL_CMDLINE += loop.max_part=7
+BOARD_KERNEL_CMDLINE += print.devkmsg=on
+BOARD_KERNEL_CMDLINE += buildvariant=user
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE += androidboot.goodixtp=gtp
+
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8937
@@ -125,7 +141,6 @@ TW_DEFAULT_BRIGHTNESS := 200
 
 # Device Assert
 TARGET_OTA_ASSERT_DEVICE := X505X,TB-X505X,TB-X505F,TB-X505L
-TARGET_RECOVERY_DEVICE_DIRS := device/lenovo/X505X
-TARGET_PREBUILT_DTB := device/lenovo/X505X/prebuilt/dtb.img
+
 #SELinux
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
